@@ -44,3 +44,20 @@ jobs:
           fi
           echo "Binary found"
           exit 0
+
+  run-tests:
+    runs-on: ubuntu-latest
+    container: epitechcontent/epitest-docker:latest
+    needs: [compile, coding-style]
+    steps:
+      - name: Checkout GH repository
+        uses: actions/checkout@master
+
+      - name: Compile tests binaries
+        run: make compile_test
+
+      - name: Run unit tests
+        run: ./unit_testing
+
+      - name: Run integrations tests
+        run: ./integrations-testing
