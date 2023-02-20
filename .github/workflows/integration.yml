@@ -7,13 +7,13 @@ jobs:
       - name: check GH repository
         uses: actions/checkout@master
 
-      - name: Get banana
+      - name: Get banana script
         run: curl https://raw.githubusercontent.com/Epitech/coding-style-checker/main/coding-style.sh -o /tmp/coding-style.sh; chmod +x /tmp/coding-style.sh 
 
       - name: Run coding-style.sh
         run: /tmp/coding-style.sh
 
-      - name: Display banan reports
+      - name: Display banana reports
         run: cat coding-style-reports.log
 
       - name: Report banana result
